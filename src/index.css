@@ -1,0 +1,187 @@
+/* Smoothly scroll to section when clicking navbar links */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif; /* Paila setup gareko body font */
+  overflow-x: hidden; /* Side ma scroll bar na-aaos bhannalai */
+  background-color: #fdfdfd; /* Pure white bhanda halka greyish white professional dekhinchha */
+}
+h1, h2, h3, .navbar-brand {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.03em; /* Headline लाई झन् आधुनिक देखाउन अलि tight पारेको */
+}
+/* Section spacing - Foundation ma section ko gap thulo hunu parchha */
+section {
+  padding: 100px 0;
+}
+.text-primary {
+  color: #0d6efd !important; /* Bootstrap primary blue, ya timro choice ko color */
+}
+
+.rounded-pill {
+  border-radius: 50px !important;
+}
+/* Active Dot style */
+/* Container Fix */
+.dot-nav-container {
+  position: fixed;
+  right: 15px; 
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1050;
+  display: flex;
+}
+
+/* Dots Styling */
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: block;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.dot.active {
+  background-color: #0d6efd !important;
+  transform: scale(1.4);
+  border-color: rgba(13, 110, 253, 0.3);
+}
+
+/* Label Styling */
+.dot-label {
+  position: absolute;
+  right: 25px;
+  background: #333;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* Hover garda label dekhaune (Desktop ma matrai) */
+.dot-nav-item:hover .dot-label {
+  opacity: 1;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+  .dot-nav-container {
+    right: 12px;
+    gap: 12px;
+  }
+  .dot {
+    width: 9px;
+    height: 9px;
+  }
+  /* Active bhako dot prasta dekhuna */
+  .dot.active {
+    transform: scale(1.5);
+    box-shadow: 0 0 8px rgba(13, 110, 253, 0.5);
+  }
+}
+
+/* DARK MODE SUPPORT (Yedi thapeko chau bhane) */
+body.dark-theme .dot {
+  background-color: #757070;
+}
+body.dark-theme .dot-label {
+  background: #f8f9fa;
+  color: #212529;
+}
+/* Mobile Navbar Fix */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: white; /* Menu khulda background solid white hune */
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1); /* Halka shadow depth ko lagi */
+  }
+
+  /* Navbar thichida Hero section overlap huna nadina */
+  .navbar-brand, .navbar-toggler {
+    z-index: 1001;
+  }
+}
+
+/* Navbar active link ko spacing */
+.nav-item {
+  padding: 5px 0;
+}
+@media (max-width: 991px) {
+  .navbar-collapse.show {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+}
+/* Custom Underline Effect for PC */
+.custom-nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+@media (min-width: 992px) {
+  .custom-nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 5px;
+    left: 50%;
+    background-color: #0d6efd; /* Bootstrap primary blue */
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+  }
+
+  .custom-nav-link:hover::after {
+    width: 70%; /* Hover गर्दा ७०% सम्म लाइन फैलिन्छ */
+  }
+
+  .custom-nav-link:hover {
+    color: #0d6efd !important;
+  }
+}
+
+/* Mobile Menu Interaction */
+@media (max-width: 991px) {
+  .navbar-collapse.show {
+    background: white;
+    margin-top: 15px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  }
+
+  .nav-link {
+    padding: 12px !important;
+    border-radius: 10px;
+    margin-bottom: 5px;
+  }
+
+  /* Mobile मा छुँदा हल्का grey background आउने */
+  .nav-link:active {
+    background-color: #f8f9fa;
+    color: #0d6efd !important;
+  }
+}
+/* Email link hover effect */
+.email-link {
+  transition: color 0.3s ease;
+}
+
+.email-link:hover {
+  color: #0d6efd !important; /* Bootstrap Primary Blue */
+}
