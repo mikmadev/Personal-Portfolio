@@ -7,24 +7,30 @@ function Contact() {
   const form = useRef(); // Form reference
   const [loading, setLoading] = useState(false); // Loading state
 
-  const sendEmail = (e) => {
+const sendEmail = (e) => {
     e.preventDefault();
     setLoading(true);
 
+    // emailjs bhitra yo format ma data pathaune
     emailjs.sendForm(
-      'service_8k1e736',   // EmailJS bata liyeko ID
-      'template_lr8a0jn',  // EmailJS bata liyeko ID
-      form.current,
-      'SXCNH_KjqKRQ3_ook'    // EmailJS bata liyeko Key
+      'service_8k1e736',   // Service ID (Gmail)
+      'template_lr8a0jn',  // Template ID (Contact Us)
+      form.current,        // Form reference
+      'SXCNH_KjqKRQ3_ook'  // Public Key
     )
-      .then((result) => {
+    .then((result) => {
+        // Dhamilo dekhini samasya yaha bata fix hunchha
+        console.log("Success:", result.text);
         alert("Message Sent Successfully! ");
-        e.target.reset(); // Form khali hunchha
+        e.target.reset(); // Form clear garna
         setLoading(false);
-      }, (error) => {
-        alert("Oops, please resend again");
+    })
+    .catch((error) => {
+        // Error lai console ma print garne debugging ko lagi
+        console.error("EmailJS Error Details:", error);
+        alert("Oops something went wrong, please resend again.");
         setLoading(false);
-      });
+    });
   };
   return (
     <section id="contact" className="py-5 bg-white overflow-hidden">
