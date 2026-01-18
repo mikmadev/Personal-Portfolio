@@ -14,7 +14,7 @@ const sendEmail = (e) => {
     // emailjs bhitra yo format ma data pathaune
     emailjs.sendForm(
       'service_8k1e736',   // Service ID (Gmail)
-      'template_lr8a0jn',  // Template ID (Contact Us)
+      'template_jie1kfs',  // Template ID (Contact Us)
       form.current,        // Form reference
       'SXCNH_KjqKRQ3_ook'  // Public Key
     )
