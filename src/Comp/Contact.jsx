@@ -1,6 +1,7 @@
 import React,{ useRef, useState } from 'react';
 import { FaEnvelope, FaPhoneAlt, FaGithub, FaFacebookF, FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 
 function Contact() {
   const form = useRef(); // Form reference
@@ -12,7 +13,7 @@ function Contact() {
 
     emailjs.sendForm(
       'service_8k1e736',   // EmailJS bata liyeko ID
-      'service_8k1e736',  // EmailJS bata liyeko ID
+      'template_lr8a0jn',  // EmailJS bata liyeko ID
       form.current,
       'SXCNH_KjqKRQ3_ook'    // EmailJS bata liyeko Key
     )
