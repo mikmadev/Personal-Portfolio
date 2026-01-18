@@ -11,17 +11,17 @@ function Contact() {
     setLoading(true);
 
     emailjs.sendForm(
-      'YOUR_SERVICE_ID',   // EmailJS bata liyeko ID
-      'YOUR_TEMPLATE_ID',  // EmailJS bata liyeko ID
+      'service_8k1e736',   // EmailJS bata liyeko ID
+      'service_8k1e736',  // EmailJS bata liyeko ID
       form.current,
-      'YOUR_PUBLIC_KEY'    // EmailJS bata liyeko Key
+      'SXCNH_KjqKRQ3_ook'    // EmailJS bata liyeko Key
     )
       .then((result) => {
         alert("Message Sent Successfully! ");
         e.target.reset(); // Form khali hunchha
         setLoading(false);
       }, (error) => {
-        alert("Oops! Kehi error aayo.");
+        alert("Oops, please resend again");
         setLoading(false);
       });
   };
